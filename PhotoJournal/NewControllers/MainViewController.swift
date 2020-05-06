@@ -13,11 +13,11 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-  //  var photo: ImageObject?
+    //  var photo: ImageObject?
     
     private var imageObjects = [ImageObject]() {
         didSet {
-        //    collectionView.reloadData()
+            //    collectionView.reloadData()
         }
     }
     
@@ -26,11 +26,11 @@ class MainViewController: UIViewController {
     private let dataPersistance = PersistenceHelper(filename: "images.plist")
     
     private var selectedImage: UIImage?
-//    {
-//        didSet {
-//           // appendNewPhotoToCollection()
-//        }
-//    }
+    //    {
+    //        didSet {
+    //           // appendNewPhotoToCollection()
+    //        }
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +45,27 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let addPhotoVC = segue.destination as? NewAddPhotoViewController else {
-            fatalError("cannot segue to addPhotVC")
+        
+        if segue.identifier == "addPhotoSegue" {
+            guard let addPhotoVC = segue.destination as? NewAddPhotoViewController else {
+                fatalError("cannot segue to addPhotoVC")
+            }
+            addPhotoVC.updatePhotoDelegate = self
+        } else if segue.identifier == "settingsSegue" {
+            
+            guard let settingsVC = segue.destination as? NewSettingsViewController else {
+                fatalError("cannot segue to settingsVC")
+            }
+            settingsVC.updateScrollDirectionDelegate = self
         }
-        addPhotoVC.updatePhotoDelegate = self
     }
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        guard let settingsVC = segue.destination as? NewSettingsViewController else {
+    //            fatalError("cannot segue to settingsVC")
+    //        }
+    //        settingsVC.updateScrollDirectionDelegate = self
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         loadImageObjects()
@@ -67,44 +83,44 @@ class MainViewController: UIViewController {
     }
     
     
-//    private func appendNewPhotoToCollection() {
-//        guard let image = selectedImage else {
-//            print("image is nil #1")
-//            return
-//        }
-//        print("original image size is \(image.size)")
-//
-//        //resize image
-//        let size = UIScreen.main.bounds.size
-//
-//        // we will maintain the aspect ratio of the image
-//        let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
-//
-//        //resize image
-//        let resizeImage = image.resizeImage(to: rect.size.width, height: rect.size.height)
-//
-//        print("resized image size is \(resizeImage.size)")
-//
-//        // jpegData(compressionQuality: 1.0 converts UIImage to Data
-//        guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
-//            return
-//        }
-//
-//        let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: "no image description")
-//
-//        imageObjects.insert(imageObject, at: 0)
-//
-//        let indexPath = IndexPath(row: 0, section: 0)
-//
-//        collectionView.insertItems(at: [indexPath])
-//
-//        //persist imageObject to documents directory
-//        do {
-//            try dataPersistance.create(imageObject)
-//        } catch {
-//            print("saving error: \(error)")
-//        }
-//    }
+    //    private func appendNewPhotoToCollection() {
+    //        guard let image = selectedImage else {
+    //            print("image is nil #1")
+    //            return
+    //        }
+    //        print("original image size is \(image.size)")
+    //
+    //        //resize image
+    //        let size = UIScreen.main.bounds.size
+    //
+    //        // we will maintain the aspect ratio of the image
+    //        let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
+    //
+    //        //resize image
+    //        let resizeImage = image.resizeImage(to: rect.size.width, height: rect.size.height)
+    //
+    //        print("resized image size is \(resizeImage.size)")
+    //
+    //        // jpegData(compressionQuality: 1.0 converts UIImage to Data
+    //        guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
+    //            return
+    //        }
+    //
+    //        let imageObject = ImageObject(imageData: resizedImageData, date: Date(), imageDescription: "no image description")
+    //
+    //        imageObjects.insert(imageObject, at: 0)
+    //
+    //        let indexPath = IndexPath(row: 0, section: 0)
+    //
+    //        collectionView.insertItems(at: [indexPath])
+    //
+    //        //persist imageObject to documents directory
+    //        do {
+    //            try dataPersistance.create(imageObject)
+    //        } catch {
+    //            print("saving error: \(error)")
+    //        }
+    //    }
     
     
 }
@@ -231,6 +247,20 @@ extension MainViewController: UpdatePhotoDelegate {
     func didSavePhotoButtonPressed(_ addPhotosVC: NewAddPhotoViewController, photo: ImageObject) {
         loadImageObjects()
         collectionView.reloadData()
+    }
+}
+
+extension MainViewController: UpdateScrollDirectionDelegate {
+    func scrollDirection(_ settingsVC: NewSettingsViewController, scrollDirection: ScrollDirections) {
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        switch scrollDirection {
+        case .horizontalScroll:
+            layout.scrollDirection = .horizontal
+        case .verticalScroll:
+            layout.scrollDirection = .vertical
+        }
     }
 }
 

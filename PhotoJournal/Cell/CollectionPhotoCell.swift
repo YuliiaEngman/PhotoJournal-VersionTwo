@@ -29,8 +29,9 @@ class CollectionPhotoCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 20.0
-        //backgroundColor = .orange
+        photoImage.layer.cornerRadius = 50.0
+        photoLabel.textAlignment = .center
+        photoLabel.font = UIFont(name: "Zapfino", size: 16.0)
         
         addGestureRecognizer(longPressGesture)
     }

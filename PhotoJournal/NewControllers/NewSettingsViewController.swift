@@ -8,23 +8,36 @@
 
 import UIKit
 
-class NewSettingsViewController: UIViewController {
+enum ScrollDirections {
+    case horizontalScroll
+    case verticalScroll
+}
 
+protocol UpdateScrollDirectionDelegate: AnyObject {
+    func scrollDirection(_ settingsVC: NewSettingsViewController, scrollDirection: ScrollDirections)
+}
+
+class NewSettingsViewController: UIViewController {
+    
+    @IBOutlet weak var horizontalScroll: UIButton!
+    
+    @IBOutlet weak var verticalScroll: UIButton!
+    
+    weak var updateScrollDirectionDelegate: UpdateScrollDirectionDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func horizontalButtonPressed(_ sender: UIButton) {
+        updateScrollDirectionDelegate?.scrollDirection(self, scrollDirection: .horizontalScroll)
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    @IBAction func varticalButtonPressed(_ sender: UIButton) {
+        updateScrollDirectionDelegate?.scrollDirection(self, scrollDirection: .verticalScroll)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
