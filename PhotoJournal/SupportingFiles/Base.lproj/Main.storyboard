@@ -615,6 +615,7 @@
                                         </constraints>
                                         <connections>
                                             <action selector="pinkColorButton:" destination="puS-y6-Si9" eventType="touchUpInside" id="Kfy-6E-Xs6"/>
+                                            <action selector="redbuttonPressed:" destination="Oou-EK-0IZ" eventType="touchUpInside" id="ViK-OI-lHO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-dZ-Bm7">
@@ -625,6 +626,7 @@
                                         </constraints>
                                         <connections>
                                             <action selector="tealColorButton:" destination="puS-y6-Si9" eventType="touchUpInside" id="IUF-Di-R24"/>
+                                            <action selector="tealbuttonPressed:" destination="Oou-EK-0IZ" eventType="touchUpInside" id="n9E-xI-ZIQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mD-Zp-D86">
@@ -639,6 +641,7 @@
                                         </state>
                                         <connections>
                                             <action selector="whiteColorButton:" destination="puS-y6-Si9" eventType="touchUpInside" id="LPQ-8z-kUf"/>
+                                            <action selector="whitebuttonPressed:" destination="Oou-EK-0IZ" eventType="touchUpInside" id="G86-Gr-3a4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LES-mv-GFa">
@@ -653,6 +656,7 @@
                                         </state>
                                         <connections>
                                             <action selector="yellowColorButton:" destination="puS-y6-Si9" eventType="touchUpInside" id="Vrd-Ed-zFE"/>
+                                            <action selector="yellowbuttonPressed:" destination="Oou-EK-0IZ" eventType="touchUpInside" id="bqN-L6-jOw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jc-Vc-rZN">
@@ -663,6 +667,7 @@
                                         </constraints>
                                         <connections>
                                             <action selector="greenColorButton:" destination="puS-y6-Si9" eventType="touchUpInside" id="Vhu-I0-dZu"/>
+                                            <action selector="greenbuttonPressed:" destination="Oou-EK-0IZ" eventType="touchUpInside" id="cn5-pm-aGW"/>
                                         </connections>
                                     </button>
                                 </subviews>
