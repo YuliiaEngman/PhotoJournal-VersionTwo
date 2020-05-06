@@ -47,15 +47,25 @@ class NewAddPhotoViewController: UIViewController {
          }
      }
     
-    //FIXME:
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
+        guard let descriptionOfPhoto = textField.text, !descriptionOfPhoto.isEmpty else {
+            showAlert(title: "Missing Description", message: "Please add description of your photo")
+            return
+        }
+        
+        guard let selectedImage = imageView.image, selectedImage != UIImage(systemName: "photo") else {
+            showAlert(title: "Missing Photo", message: "Please add your photo")
+            return
+        }
+        
         guard let image = imageView.image else {
                print("image is nil # 2")
+            showAlert(title: "Missing Photo", message: "Please add your photo")
                return
            }
            

@@ -511,8 +511,8 @@
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-25-mca">
-                                <rect key="frame" x="20" y="275" width="374" height="247.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-25-mca">
+                                <rect key="frame" x="20" y="274" width="374" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="dWk-py-Jb0"/>
                                 </constraints>

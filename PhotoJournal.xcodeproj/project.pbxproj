@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F517B47246323E600A6756D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F517B46246323E600A6756D /* Alerts.swift */; };
 		0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF33245B82E400B5AB2A /* ImageObject.swift */; };
 		0F51FF3B245C84D900B5AB2A /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF3A245C84D900B5AB2A /* PersistenceHelper.swift */; };
 		0F51FF3D245C84FF00B5AB2A /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F51FF3C245C84FF00B5AB2A /* FileManager+Extensions.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F517B46246323E600A6756D /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		0F51FF33245B82E400B5AB2A /* ImageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		0F51FF3A245C84D900B5AB2A /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		0F51FF3C245C84FF00B5AB2A /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				0F80854E23DEF5D7003BB7D7 /* LaunchScreen.storyboard */,
 				0F80854C23DEF5D7003BB7D7 /* Assets.xcassets */,
 				0F80854923DEF5D1003BB7D7 /* Main.storyboard */,
+				0F517B46246323E600A6756D /* Alerts.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				0F51FF34245B82E400B5AB2A /* ImageObject.swift in Sources */,
 				0F80854423DEF5D1003BB7D7 /* AppDelegate.swift in Sources */,
 				0F80854623DEF5D1003BB7D7 /* SceneDelegate.swift in Sources */,
+				0F517B47246323E600A6756D /* Alerts.swift in Sources */,
 				0FA31D072406E84300BFB1D0 /* SettingsViewController.swift in Sources */,
 				0F51FF3B245C84D900B5AB2A /* PersistenceHelper.swift in Sources */,
 				0F51FF3D245C84FF00B5AB2A /* FileManager+Extensions.swift in Sources */,

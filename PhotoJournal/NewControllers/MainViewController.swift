@@ -85,17 +85,32 @@ extension MainViewController: UICollectionViewDataSource {
 
 // here we are using UICollectionViewFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
+
+//    //This is how you create it in code with UICollectionViewFlowLayout
+//
+//    let layout = UICollectionViewFlowLayout()
+//    layout.scrollDirection = .vertical
+//    let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+//  //  or if you are working with an existent collection view
+//
+//    if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//        layout.scrollDirection = .vertical
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //FIXME: cannot set "normal" constraints
         
         let maxWidth: CGFloat = UIScreen.main.bounds.size.width
         let itemWidth: CGFloat = maxWidth * 0.8
+        //let layout = UICollectionViewFlowLayout()
+       // layout.scrollDirection = UserPreference.shared.getScrollDirection() ?? ScrollDirection(rawValue: "vertical")
         return CGSize(width: itemWidth, height: itemWidth * 1.1)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
+    
 }
 
 extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -193,7 +208,7 @@ extension MainViewController: UpdatePhotoDelegate {
 
 extension MainViewController: UpdateScrollDirectionDelegate {
     func scrollDirection(_ settingsVC: NewSettingsViewController, scrollDirection: ScrollDirections) {
-        
+    
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
         switch scrollDirection {
